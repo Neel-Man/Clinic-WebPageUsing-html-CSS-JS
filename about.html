@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Clinic | About Us</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="branding">
+            <img src="https://www.pinclipart.com/picdir/big/333-3337767_healthcare-clip-art-free-clipart-healthcare-icon-png.png" alt="Logo" class="logo">
+            <h1 class="header-title">Healthcare</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" name="search" id="search" placeholder="Search">
+            <button class="btn">Search</button>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="nav-links">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="appointment.html">Book an Appointment</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="page-container">
+        <h2>About Our Clinic</h2>
+        <p>Founded in 2005, Healthcare Clinic has been dedicated to providing top-quality medical care to our community for nearly two decades. Our mission is to ensure every patient receives personalized and compassionate attention in a state-of-the-art facility.</p>
+        
+        <h3>Our Mission</h3>
+        <p>To promote health and well-being through accessible, high-quality medical services and a commitment to patient education and preventative care. We believe in building lasting relationships with our patients based on trust and mutual respect.</p>
+
+        <h3>Our Team</h3>
+        <p>Our team of board-certified physicians, experienced nurses, and dedicated support staff work together to provide comprehensive care. We are specialists in a variety of fields, including general medicine, pediatrics, and cardiology, ensuring that all your family's health needs are met under one roof.</p>
+    </main>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+    </script>
+</body>
+</html>

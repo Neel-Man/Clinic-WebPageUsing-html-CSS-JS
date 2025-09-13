@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Clinic | Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="branding">
+            <img src="https://www.pinclipart.com/picdir/big/333-3337767_healthcare-clip-art-free-clipart-healthcare-icon-png.png" alt="Logo" class="logo">
+            <h1 class="header-title">Healthcare</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" name="search" id="search" placeholder="Search">
+            <button class="btn">Search</button>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="nav-links">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="appointment.html">Book an Appointment</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="page-container">
+        <h2>Contact Us</h2>
+        <p>We're here to help. Reach out to us with any questions or to schedule a visit.</p>
+        
+        <div class="contact-details">
+            <p><strong>Address:</strong> Ground Floor, A-9 FIEE Complex, near C Lal Chowk, Block A, Okhla Phase II, Okhla Industrial Estate, New Delhi, Delhi 110020</p>
+            <p><strong>Phone:</strong> <a href="tel:+91384717022" class="contact-link">384-717-022</a></p>
+            <p><strong>Email:</strong> <a href="mailto:Support@gmail.com" class="contact-link">Support@gmail.com</a></p>
+            <p><strong>Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM</p>
+        </div>
+    </main>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+    </script>
+</body>
+</html>

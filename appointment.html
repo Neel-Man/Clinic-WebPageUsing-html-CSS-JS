@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Clinic | Book Appointment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="branding">
+            <img src="https://www.pinclipart.com/picdir/big/333-3337767_healthcare-clip-art-free-clipart-healthcare-icon-png.png" alt="Logo" class="logo">
+            <h1 class="header-title">Healthcare</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" name="search" id="search" placeholder="Search">
+            <button class="btn">Search</button>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="nav-links">
+            <ul class="nav-list">
+                <li><a href="clinic.html">Home</a></li>
+                <li><a href="appointment.html">Book an Appointment</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="page-container">
+        <h2>Book an Appointment</h2>
+        <p>Please fill out the form below to request an appointment. We will contact you to confirm.</p>
+        <form class="appointment-form">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="appointmentDate">Preferred Date</label>
+                <input type="date" id="appointmentDate" name="appointmentDate" required>
+            </div>
+            <div class="form-group">
+                <label for="appointmentTime">Preferred Time</label>
+                <input type="time" id="appointmentTime" name="appointmentTime" required>
+            </div>
+            <div class="form-group">
+                <label for="reason">Reason for Visit</label>
+                <textarea id="reason" name="reason" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-submit">Submit Request</button>
+        </form>
+        <!-- This div will display success or error messages -->
+        <div id="message-box"></div>
+    </main>
+
+    <script>
+        // --- Hamburger Menu Logic ---
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+
+        // --- Appointment Form Validation Logic ---
+        const appointmentForm = document.querySelector('.appointment-form');
+        const dateInput = document.getElementById('appointmentDate');
+        const timeInput = document.getElementById('appointmentTime');
+        const messageBox = document.getElementById('message-box');
+
+        // Set the minimum selectable date to today to prevent booking in the past
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+        const dd = String(today.getDate()).padStart(2, '0');
+        dateInput.setAttribute('min', `${yyyy}-${mm}-${dd}`);
+
+        appointmentForm.addEventListener('submit', function(event) {
+            // Stop the form from submitting the default way
+            event.preventDefault(); 
+
+            const selectedDate = new Date(dateInput.value);
+            // getUTCDay() is used to avoid timezone issues. Sunday is 0, Saturday is 6.
+            const selectedDay = selectedDate.getUTCDay(); 
+            const selectedTime = timeInput.value;
+
+            // Clear any previous messages
+            messageBox.textContent = '';
+            messageBox.className = '';
+
+            // Rule 1: Check if the selected day is a Saturday or Sunday
+            if (selectedDay === 6 || selectedDay === 0) {
+                messageBox.textContent = 'The clinic is closed on that day. Please select a weekday.';
+                messageBox.classList.add('error');
+                return;
+            }
+
+            // Rule 2: Check if the time is within clinic hours (9 AM to 5 PM)
+            if (selectedTime < '09:00' || selectedTime > '17:00') {
+                messageBox.textContent = 'Appointments can only be booked between 9:00 AM and 5:00 PM.';
+                messageBox.classList.add('error');
+                return;
+            }
+
+            // If all rules pass, show a success message
+            messageBox.textContent = 'Your appointment has been booked!';
+            messageBox.classList.add('success');
+            
+            // Reset the form after a successful submission
+            appointmentForm.reset();
+
+            // Hide the success message after a few seconds
+            setTimeout(() => {
+                messageBox.textContent = '';
+                messageBox.className = '';
+            }, 5000); // 5 seconds
+        });
+    </script>
+</body>
+</html>

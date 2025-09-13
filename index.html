@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Clinic | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="branding">
+            <img src="https://www.pinclipart.com/picdir/big/333-3337767_healthcare-clip-art-free-clipart-healthcare-icon-png.png" alt="Logo" class="logo">
+            <h1 class="header-title">Healthcare</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" name="search" id="search" placeholder="Search">
+            <button class="btn">Search</button>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="nav-links">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="appointment.html">Book an Appointment</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="firstsection">
+            <div class="section-content">
+                <h2>Welcome to Our Clinic</h2>
+                <p>Your health is our top priority. We provide compassionate care with a focus on your well-being.</p>
+            </div>
+        </div>
+        <div class="secondsection">
+            <div class="section-content">
+                <h2>Our Services</h2>
+                <p>From routine check-ups to specialized treatments, we offer a wide range of medical services.</p>
+            </div>
+        </div>
+        <div class="thirdsection">
+             <div class="section-content">
+                <h2>Contact Us</h2>
+                <p><b>Address</b>: Ground Floor, A-9 FIEE Complex, near C Lal Chowk, Block A, Okhla Phase II, Okhla Industrial Estate, New Delhi, Delhi 110020</p>
+                <p><a href="tel:+91384717022" class="contactlinks"><b>Contact</b>: <u>384-717-022</u></a></p>
+                <p><a href="mailto:Support@gmail.com" class="contactlinks"><b>Email</b>: <u>Support@gmail.com</u></a></p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+    </script>
+</body>
+</html>
